@@ -4,7 +4,8 @@ The UrlExtractor library is used to extract URLs from any given document.
 
 ## Supported types
 
-- PDF documents
+- PDF documents (PdfAdapter)
+- HTML document (HtmlAnchorAdapter)
 
 ## Examples
 

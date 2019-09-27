@@ -9,6 +9,8 @@ use Psr\Http\Message\UriInterface;
 class Extractor
 {
     /**
+     * Extract all links from the given document represented by an adapter
+     *
      * @param Adapter $adapter
      * @return UriInterface[]
      */
@@ -19,7 +21,11 @@ class Extractor
         $uris = [];
 
         foreach ($urlStrings as $urlString) {
-            $uris[] = new Uri($urlString);
+            if ($urlString instanceof UriInterface) {
+                $uris[] = $urlString;
+            } else {
+                $uris[] = new Uri($urlString);
+            }
         }
 
         return $uris;

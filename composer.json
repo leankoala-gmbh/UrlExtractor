@@ -4,7 +4,8 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "guzzlehttp/guzzle": "~6.3.0"
+    "guzzlehttp/guzzle": "~6.3.0",
+    "phmLabs/html": "dev-master"
   },
   "autoload": {
     "psr-4": {
