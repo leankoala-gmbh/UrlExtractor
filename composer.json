@@ -1,0 +1,14 @@
+{
+  "name": "leankoala/urlextractor",
+  "description": "Extract urls from all kind of file/stream types",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "guzzlehttp/guzzle": "~6.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Leankoala\\UrlExtractor\\": "src/"
+    }
+  }
+}
