@@ -12,13 +12,16 @@ class HtmlAnchorAdapter implements Adapter
 
     public function __construct(UriInterface $baseUri, $content)
     {
-        $this->content = $content;
+        $this->content = (string)$content;
         $this->baseUri = $baseUri;
     }
 
     public function extract()
     {
-        $htmlDocument = new Document($this->content);
+        $contentWithoutScripts = Document::removeScriptTags($this->content);
+
+        $htmlDocument = new Document($contentWithoutScripts);
+
         $links = $htmlDocument->getOutgoingLinks($this->baseUri);
         return $links;
     }

@@ -28,6 +28,8 @@ class Extractor
             }
         }
 
+        $uris = array_unique($uris);
+
         return $uris;
     }
 }
