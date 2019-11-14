@@ -10,17 +10,20 @@ class HtmlAnchorAdapter implements Adapter
     private $content;
     private $baseUri;
 
-    public function __construct(UriInterface $baseUri, $content)
+    private $repairUrl;
+
+    public function __construct(UriInterface $baseUri, $content, $repairUrl = true)
     {
         $this->content = (string)$content;
         $this->baseUri = $baseUri;
+        $this->repairUrl = $repairUrl;
     }
 
     public function extract()
     {
         $contentWithoutScripts = Document::removeScriptTags($this->content);
 
-        $htmlDocument = new Document($contentWithoutScripts);
+        $htmlDocument = new Document($contentWithoutScripts, $this->repairUrl);
 
         $links = $htmlDocument->getOutgoingLinks($this->baseUri);
         return $links;
