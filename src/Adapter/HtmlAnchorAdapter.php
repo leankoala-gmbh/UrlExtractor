@@ -25,6 +25,6 @@ class HtmlAnchorAdapter implements Adapter
 
         $htmlDocument = new Document($contentWithoutScripts, $this->repairUrl);
 
-        return $htmlDocument->getOutgoingLinks($this->baseUri);
+        return $htmlDocument->getOutgoingLinks($this->baseUri, true, true);
     }
 }
