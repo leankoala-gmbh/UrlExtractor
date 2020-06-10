@@ -5,6 +5,18 @@ namespace Leankoala\UrlExtractor\Adapter;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 
+/**
+ * Class PdfAdapter
+ *
+ * This class is using the poppler-utils for converting PDF files into html documents. Afterwards
+ * links are extracted from the HTML file.
+ *
+ * @see https://wiki.ubuntuusers.de/poppler-utils/
+ *
+ * @package Leankoala\UrlExtractor\Adapter
+ *
+ * @author Nils Langner (nils.langner@leankoala.com)
+ */
 class PdfAdapter implements Adapter
 {
     private $content;
@@ -14,6 +26,9 @@ class PdfAdapter implements Adapter
         $this->content = (string)$content;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function extract()
     {
         $fileDir = sys_get_temp_dir() . '/';
